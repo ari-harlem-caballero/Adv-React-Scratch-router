@@ -1,6 +1,7 @@
 //list Hogwarts House details (name, houseColors, founder, animal, element, ghost, traits(id/name))
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 export default function DetailPage() {
@@ -22,6 +23,29 @@ export default function DetailPage() {
   }, []);
 
   return (
-    <div>Detail</div>
+    <>
+      <Link to="/">Return to Home</Link>
+      {loading ? (
+        <figure>
+        <img
+          src='./snitch_spinner.gif'
+          alt='golden snitch buzzing around' 
+        />
+        <figcaption>Loading...</figcaption>
+      </figure>
+      ) : (
+      <section>
+        <img
+          src={`./${house.name}.png`}
+          alt={`${house.name} house crest`}
+        />
+        <h2>{house.name}</h2>
+        <p>{house.traits.name}</p>
+        <p>{house.ghost}</p>
+        <p>{house.animal}</p>
+        <p>{house.element}</p>
+      </section>
+      )}
+    </>
   )
 }
