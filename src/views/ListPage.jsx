@@ -1,6 +1,7 @@
 // lists  Hogwarts houses (image, name)
 // useLocation, useParams
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function ListPage() {
   const [houses, setHouses] = useState([]);
@@ -18,6 +19,30 @@ export default function ListPage() {
   }, []);
 
   return (
-    <div>List</div>
+    <>
+      <h1>Hogwarts Houses</h1>
+      {loading ? (
+        <figure>
+          <img
+            src='./snitch_spinner.gif'
+            alt='golden snitch buzzing around' 
+          />
+          <figcaption>Loading...</figcaption>
+        </figure>
+      ) : (
+        <section>
+          {houses.map((house) => (
+            <article key={house.id}>
+              <Link to={`/houses/${house.id}`}>
+                <img
+                  src="./"
+                  alt='./'
+                />
+              </Link>
+            </article>
+          ))}
+        </section>
+      )}
+    </>
   )
 }
