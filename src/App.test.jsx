@@ -1,0 +1,1 @@
+// route test from list page to detail
