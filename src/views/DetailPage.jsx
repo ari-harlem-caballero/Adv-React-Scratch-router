@@ -28,7 +28,7 @@ export default function DetailPage() {
       {loading ? (
         <figure>
         <img
-          src='./snitch_spinner.gif'
+          src='../snitch_spinner.gif'
           alt='golden snitch buzzing around' 
         />
         <figcaption>Loading...</figcaption>
@@ -36,14 +36,14 @@ export default function DetailPage() {
       ) : (
       <section>
         <img
-          src={`./${house.name}.png`}
+          src={`../${house.name}.png`}
           alt={`${house.name} house crest`}
         />
         <h2>{house.name}</h2>
-        <p>{house.traits.name}</p>
-        <p>{house.ghost}</p>
-        <p>{house.animal}</p>
-        <p>{house.element}</p>
+        <p>Traits: {house.traits.name}</p>
+        <p>Ghost: {house.ghost}</p>
+        <p>Animal: {house.animal}</p>
+        <p>Element: {house.element}</p>
       </section>
       )}
     </>

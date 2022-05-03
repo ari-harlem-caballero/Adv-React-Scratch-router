@@ -10,8 +10,9 @@ export default function ListPage() {
   useEffect(() => {
     async function fetchHouses() {
       const res = await fetch('https://wizard-world-api.herokuapp.com/Houses');
-      const { results } = await res.json();
+      const results = await res.json();
 
+      console.log(results);
       setHouses(results);
       setLoading(false);
     }
