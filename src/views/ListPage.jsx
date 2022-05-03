@@ -37,7 +37,7 @@ export default function ListPage() {
                 <img
                   src={`./${house.name}.png`}
                   alt={`${house.name} house crest`}
-                />
+                  />
               </Link>
             </article>
           ))}
