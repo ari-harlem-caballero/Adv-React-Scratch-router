@@ -35,8 +35,8 @@ export default function ListPage() {
             <article key={house.id}>
               <Link to={`/houses/${house.id}`}>
                 <img
-                  src="./"
-                  alt='./'
+                  src={`./${house.name}.png`}
+                  alt={`${house.name} house crest`}
                 />
               </Link>
             </article>
@@ -44,5 +44,5 @@ export default function ListPage() {
         </section>
       )}
     </>
-  )
+  );
 }
