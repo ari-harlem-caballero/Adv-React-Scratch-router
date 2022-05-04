@@ -2,6 +2,7 @@
 // useLocation, useParams
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import './List.css';
 
 export default function ListPage() {
   const [houses, setHouses] = useState([]);
@@ -16,6 +17,7 @@ export default function ListPage() {
       setHouses(results);
       setLoading(false);
     }
+    console.log(location);
     fetchHouses();
   }, []);
 
