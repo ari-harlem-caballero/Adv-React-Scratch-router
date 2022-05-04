@@ -1,5 +1,5 @@
 // route test from list page to detail
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
@@ -12,11 +12,13 @@ describe('App', () => {
             </MemoryRouter>
         );
 
-        screen.getByText('/loading/i');
+        screen.getByText(/loading.../i);
+
+        await waitForElementToBeRemoved(screen.getByText(/loading.../i));
 
         const link = await screen.findByText('Slytherin');
         userEvent.click(link);
 
-        await screen.findByText('/traits/i');
+        await screen.findByText('/ghost/i');
     });
 });
