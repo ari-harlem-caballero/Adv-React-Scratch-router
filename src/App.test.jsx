@@ -7,18 +7,18 @@ import App from './App';
 describe('App', () => {
     it('renders a list of hogwarts houses', async () => {
         render(
-            <MemoryRouter>
+            <MemoryRouter initialEntries={['/houses/a9704c47-f92e-40a4-8771-ed1899c9b9c1']}>
                 <App />
             </MemoryRouter>
         );
 
-        screen.getByText(/loading.../i);
+        screen.getByText(/loading.../i, {timeout: 3000});
 
         await waitForElementToBeRemoved(screen.getByText(/loading.../i));
 
-        const link = await screen.findByText('Slytherin');
+        const link = await screen.findByAltText('Slytherin house crest');
         userEvent.click(link);
 
-        await screen.findByText('/ghost/i');
+        await screen.findByText('Ghost: Bloody Baron');
     });
 });
